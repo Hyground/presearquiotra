@@ -22,6 +22,24 @@ Con el servidor de desarrollo activo, ejecuta `npm run verify`. En Windows utili
 
 Las demostraciones son esquemáticas: no representan velocidades reales. Las barras USB usan una escala ilustrativa no lineal. Incluye navegación por secciones, demostraciones de transmisión, tooltips accesibles, timeline USB, selector PCIe y recomendaciones Wi-Fi/Bluetooth. Respeta `prefers-reduced-motion`.
 
+## Publicar en GitHub Pages
+
+1. Sube el proyecto, incluyendo `.github/workflows/deploy.yml`, a la rama `main` de `Hyground/presearquiotra`.
+2. En el repositorio, abre **Settings → Pages → Build and deployment → Source** y selecciona **GitHub Actions**.
+3. En **Actions**, ejecuta **Publicar web en GitHub Pages → Run workflow**, o haz un nuevo push a `main`.
+4. Cuando termine el despliegue, la página estará disponible en **https://hyground.github.io/presearquiotra/**.
+
+El workflow instala dependencias, compila con `npm run build` y publica `dist`. La compilación de producción usa la ruta `/presearquiotra/`; el desarrollo conserva `/`.
+
+Para comprobar localmente la versión de Pages:
+
+```sh
+npm run build
+npm run preview
+```
+
+Abre http://127.0.0.1:4173/presearquiotra/. Si cambias el nombre del repositorio, actualiza `base` en `vite.config.ts`.
+
 ## Fuentes
 
 - [USB-IF: USB4](https://usb.org/usb4)

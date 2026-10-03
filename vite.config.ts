@@ -1,2 +1,5 @@
 import { defineConfig } from "vite";
-export default defineConfig({ esbuild: { jsx: "automatic" } });
+export default defineConfig(({ mode }) => ({
+  base: mode === "development" ? "/" : "/presearquiotra/",
+  esbuild: { jsx: "automatic" },
+}));
